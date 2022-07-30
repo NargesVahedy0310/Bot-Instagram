@@ -83,7 +83,7 @@ class comment:
 time_rondom=random.randint(2,5)
 num_comment=2
 comment_random=['wow','omg','Woow','Woow!!!','omg!!!']
-value_search=['#programing','#برنامه_نویسی','#python','#life']
+value_search=['#programing','#برنامه_نویسی','#python',]
 username='username'
 password='password'
 test=comment(username, password,time_rondom,value_search,comment_random,num_comment)
