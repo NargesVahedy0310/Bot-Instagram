@@ -57,12 +57,22 @@ class comment:
             menu_search=driver.find_element(By.XPATH,'//*[@class="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 nc684nl6 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl _abm4 _a6hd"]').click()
             time.sleep(6)
             #post
-            post=WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CLASS_NAME,'_aagv')))
-            action.click(post)
-            action.perform()
-            time.sleep(5)
+            driver.implicitly_wait(15)
+            posts=driver.find_elements(By.CLASS_NAME,"_aagv")
+            count=0
+            for p in posts:
+                if count<=3:
+                    action.click(p)
+                    action.perform()
+                    time.sleep(time_rondom)
             #follow
-            flo=driver.find_element(By.XPATH,'//*[@class="_ab8w  _ab94 _ab97 _ab9i _ab9k _ab9p _abcm"]//*[@class="_acan _acao _acas"]').click()
+                    flo=driver.find_element(By.XPATH,'//*[@class="_ab8w  _ab94 _ab97 _ab9i _ab9k _ab9p _abcm"]//*[@class="_acan _acao _acas"]').click()
+                    time.sleep(time_rondom)
+                    driver.back()
+                    time.sleep(time_rondom)
+                    count+=1
+                else:
+                    break
 
 
 
@@ -73,8 +83,8 @@ class comment:
 time_rondom=random.randint(2,5)
 num_comment=2
 value_search=['#programing','#برنامه_نویسی','#python','#life','#c++']
-username='py_selenium_0310'
-password='py_selenium_'
+username='seleneium_0311'
+password='selenium'
 test=comment(username, password,time_rondom,value_search)
 test.Login()
 test.search_follow()
