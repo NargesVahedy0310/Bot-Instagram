@@ -73,18 +73,11 @@ class comment:
                     count+=1
                 else:
                     break
-
-
-
-
-
-
-
 time_rondom=random.randint(2,5)
 num_comment=2
 value_search=['#programing','#برنامه_نویسی','#python','#life','#c++']
-username='seleneium_0311'
-password='selenium'
+username='username'
+password='password'
 test=comment(username, password,time_rondom,value_search)
 test.Login()
 test.search_follow()
