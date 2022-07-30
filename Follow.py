@@ -76,8 +76,8 @@ class comment:
 time_rondom=random.randint(2,5)
 num_comment=2
 value_search=['#programing','#برنامه_نویسی','#python','#life','#c++']
-username='username'
-password='password'
+username='username '
+password='password '
 test=comment(username, password,time_rondom,value_search)
 test.Login()
 test.search_follow()
