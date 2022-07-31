@@ -46,28 +46,28 @@ class comment:
         account=driver.find_elements(By.XPATH,'//*[@class="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 nc684nl6 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl _abm4 _abyi _a6hd"]')
         
         for a in account:
-            
+
             action.click(a)
             action.perform()
             time.sleep(4)
 
-        #save name
-        # name=driver.find_elements(By.XPATH,'//*[@class="_aacl _aaco _aacu _aacx _aada"]//*[@class="_aacl _aaco _aacu _aacx _aada"]')
-        # for u in name:
-        #     list_username.append(u.text)
-        # print(list_username)
-            
-        # #save massage
-        # massages=driver.find_elements(By.XPATH,'//*[@class="_aacl _aaco _aacu _aacx _aad6 _aade"]')
-        # for m in massages:
-        #     list_massags.append(m.text)
-        # print(list_massags)
-        # dict_show = {'username':list_username,'massage one account':list_massags }
-        # data = pandas.DataFrame.from_dict(dict_show, orient='index')
-        # data = data.transpose()
-        # test1 = pandas.ExcelWriter("project1.xlsx")
-        # data.to_excel(test1)
-        # test1.save()
+            # save name
+            name=driver.find_elements(By.XPATH,'//*[@class="_aacl _aaco _aacu _aacx _aada"]//*[@class="_aacl _aaco _aacu _aacx _aada"]')
+            for u in name:
+                list_username.append(u.text)
+            print(list_username)
+                
+            #save massage
+            massages=driver.find_elements(By.XPATH,'//*[@class="_aacl _aaco _aacu _aacx _aad6 _aade"]')
+            for m in massages:
+                list_massags.append(m.text)
+            print(list_massags)
+        dict_show = {'username':list_username,'massage one account':list_massags }
+        data = pandas.DataFrame.from_dict(dict_show, orient='index')
+        data = data.transpose()
+        test1 = pandas.ExcelWriter("project1.xlsx")
+        data.to_excel(test1)
+        test1.save()
         
 time_rondom=random.randint(2,5)
 list_massags=[]
