@@ -10,11 +10,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 class comment:
-    def __init__(self, username, password,list_massags,dict_show):
+    def __init__(self, username, password,list_massags,list_username,dict_show):
         self.driver = webdriver.Chrome("C:/Users/Narges/Desktop/test1/test1/chromedriver.exe")
         self.username = username
         self.password = password
         self.list_massags =list_massags
+        self.list_username = list_username
         self.dict_show=dict_show
     def Login(self):
         driver=self.driver
@@ -41,12 +42,18 @@ class comment:
         time.sleep(time_rondom)
         massage_account=driver.find_element(By.XPATH,'//*[@class=" _ab8s _ab8w  _ab94 _ab99 _ab9f _ab9m _ab9p _abcm"]').click()
         time.sleep(time_rondom)
+        #save name
+        name=driver.find_elements(By.XPATH,'//*[@class="_aacl _aaco _aacu _aacx _aada"]//*[@class="_aacl _aaco _aacu _aacx _aada"]')
+        for u in name:
+            list_username.append(u.text)
+        print(list_username)
+            
         #save massage
         massages=driver.find_elements(By.XPATH,'//*[@class="_aacl _aaco _aacu _aacx _aad6 _aade"]')
         for m in massages:
             list_massags.append(m.text)
         print(list_massags)
-        dict_show = {'massage one account':list_massags }
+        dict_show = {'username':list_username,'massage one account':list_massags }
         data = pandas.DataFrame.from_dict(dict_show, orient='index')
         data = data.transpose()
         test1 = pandas.ExcelWriter("project1.xlsx")
@@ -55,8 +62,9 @@ class comment:
         
 time_rondom=random.randint(2,5)
 list_massags=[]
+list_username=[]
 dict_show={}
-username='username'
-password='password'
-test=comment(username, password,list_massags,dict_show)
+username='seleneium_0311'
+password='selenium'
+test=comment(username, password,list_massags,list_username,dict_show)
 test.Login()
