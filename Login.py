@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 class bot:
     def __init__(self, username, password):
-        self.driver = webdriver.Chrome("C:/Users/Narges/Desktop/test1/test1/chromedriver.exe")
+        self.driver = webdriver.Chrome("C:/Users/BinoBuyo/Desktop/python/py/chromedriver.exe")
         self.username = username
         self.password = password
     def Login(self):
